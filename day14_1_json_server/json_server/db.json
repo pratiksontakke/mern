@@ -1,0 +1,292 @@
+{
+  "todos": [
+    {
+      "id": 1,
+      "title": "Learn React",
+      "status": "false"
+    },
+    {
+      "id": 2,
+      "title": "Learn Redux",
+      "status": "false"
+    }
+  ],
+  "cities": [
+    {
+      "id": "city1",
+      "name": "New York",
+      "country": "United States",
+      "population": 8419600
+    },
+    {
+      "id": "city2",
+      "name": "Tokyo",
+      "country": "Japan",
+      "population": 13929286
+    },
+    {
+      "id": "city3",
+      "name": "London",
+      "country": "United Kingdom",
+      "population": 8982000
+    },
+    {
+      "id": "city4",
+      "name": "Paris",
+      "country": "France",
+      "population": 2140526
+    },
+    {
+      "id": "city5",
+      "name": "Sydney",
+      "country": "Australia",
+      "population": 5312163
+    },
+    {
+      "id": "city6",
+      "name": "Los Angeles",
+      "country": "United States",
+      "population": 3990456
+    },
+    {
+      "id": "city7",
+      "name": "Beijing",
+      "country": "China",
+      "population": 21516000
+    },
+    {
+      "id": "city8",
+      "name": "Moscow",
+      "country": "Russia",
+      "population": 12506468
+    },
+    {
+      "id": "city10",
+      "name": "Rio de Janeiro",
+      "country": "Brazil",
+      "population": 6718903
+    },
+    {
+      "id": "city11",
+      "name": "Cairo",
+      "country": "Egypt",
+      "population": 10007500
+    },
+    {
+      "id": "city12",
+      "name": "Istanbul",
+      "country": "Turkey",
+      "population": 15029231
+    },
+    {
+      "id": "city13",
+      "name": "Shanghai",
+      "country": "China",
+      "population": 24183300
+    },
+    {
+      "id": "city14",
+      "name": "Mumbai",
+      "country": "India",
+      "population": 20764564
+    },
+    {
+      "id": "city15",
+      "name": "Mexico City",
+      "country": "Mexico",
+      "population": 8874724
+    },
+    {
+      "id": "city16",
+      "name": "São Paulo",
+      "country": "Brazil",
+      "population": 12252023
+    },
+    {
+      "id": "city17",
+      "name": "Toronto",
+      "country": "Canada",
+      "population": 2731571
+    },
+    {
+      "id": "city18",
+      "name": "Seoul",
+      "country": "South Korea",
+      "population": 9776000
+    },
+    {
+      "id": "city19",
+      "name": "Munich",
+      "country": "Germany",
+      "population": 1471508
+    },
+    {
+      "id": "city20",
+      "name": "Rome",
+      "country": "Italy",
+      "population": 2870500
+    },
+    {
+      "id": "city21",
+      "name": "Cape Town",
+      "country": "South Africa",
+      "population": 4336880
+    },
+    {
+      "id": "city22",
+      "name": "Dubai",
+      "country": "United Arab Emirates",
+      "population": 3333600
+    },
+    {
+      "id": "city23",
+      "name": "Sydney",
+      "country": "Australia",
+      "population": 5312163
+    },
+    {
+      "id": "city24",
+      "name": "Lima",
+      "country": "Peru",
+      "population": 8550395
+    },
+    {
+      "id": "city25",
+      "name": "Singapore",
+      "country": "Singapore",
+      "population": 5638700
+    },
+    {
+      "id": "city26",
+      "name": "Jakarta",
+      "country": "Indonesia",
+      "population": 10533620
+    },
+    {
+      "id": "city27",
+      "name": "Kolkata",
+      "country": "India",
+      "population": 4496694
+    },
+    {
+      "id": "city30",
+      "name": "Vienna",
+      "country": "Austria",
+      "population": 1897491
+    },
+    {
+      "id": "city31",
+      "name": "Osaka",
+      "country": "Japan",
+      "population": 1922265
+    },
+    {
+      "id": "city33",
+      "name": "Toronto",
+      "country": "Canada",
+      "population": 2731571
+    },
+    {
+      "id": "city34",
+      "name": "Chicago",
+      "country": "United States",
+      "population": 2716450
+    },
+    {
+      "id": "city35",
+      "name": "Munich",
+      "country": "Germany",
+      "population": 1471508
+    },
+    {
+      "id": "city36",
+      "name": "Copenhagen",
+      "country": "Denmark",
+      "population": 794128
+    },
+    {
+      "id": "city37",
+      "name": "Nairobi",
+      "country": "Kenya",
+      "population": 4397073
+    },
+    {
+      "id": "city38",
+      "name": "Zurich",
+      "country": "Switzerland",
+      "population": 434008
+    },
+    {
+      "id": "city39",
+      "name": "Kuala Lumpur",
+      "country": "Malaysia",
+      "population": 1768000
+    },
+    {
+      "id": "city40",
+      "name": "Hanoi",
+      "country": "Vietnam",
+      "population": 7780000
+    },
+    {
+      "id": "city41",
+      "name": "Dublin",
+      "country": "Ireland",
+      "population": 1173179
+    },
+    {
+      "id": "city42",
+      "name": "Buenos Aires",
+      "country": "Argentina",
+      "population": 2890151
+    },
+    {
+      "id": "city43",
+      "name": "Lisbon",
+      "country": "Portugal",
+      "population": 547733
+    },
+    {
+      "id": "city44",
+      "name": "Riyadh",
+      "country": "Saudi Arabia",
+      "population": 6506700
+    },
+    {
+      "id": "city45",
+      "name": "Prague",
+      "country": "Czech Republic",
+      "population": 1301132
+    },
+    {
+      "id": "city46",
+      "name": "Stockholm",
+      "country": "Sweden",
+      "population": 975904
+    },
+    {
+      "id": "city47",
+      "name": "Seoul",
+      "country": "South Korea",
+      "population": 9776000
+    },
+    {
+      "id": "city48",
+      "name": "Cairo",
+      "country": "Egypt",
+      "population": 10007500
+    },
+    {
+      "id": "city49",
+      "name": "Los Angeles",
+      "country": "United States",
+      "population": 3990456
+    },
+    {
+      "id": "city50",
+      "name": "São Paulo",
+      "country": "Brazil",
+      "population": 12252023
+    }
+  ]
+}
