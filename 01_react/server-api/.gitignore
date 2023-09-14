@@ -3,7 +3,6 @@
 # dependencies
 /node_modules
 /.pnp
-/01_react/server-api/node_modules
 .pnp.js
 
 # testing

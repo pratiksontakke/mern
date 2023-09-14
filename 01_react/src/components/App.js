@@ -7,30 +7,42 @@ import AddContact from "./AddContact";
 import ContactCard from "./ContactCard";
 import ContactList from "./ContactList";
 import ContactDetail from './ContactDetail';
+import EditContact from './EditContact';
+import api from "../api/contacts";
+import { uuid } from 'uuidv4';
 
 function App() {
 
-  // const contacts = [
-  //   {
-  //     id: "1",
-  //     "name": "Dipesh",
-  //     "email": "malvia@gmail.com"
-  //   },
-  //   {
-  //     id: "2",
-  //     "name": "Nikesh",
-  //     "email": "nicks@gmail.com"
-  //   }
-  // ]
-
   const LOCAL_STORAGE_KEY = "contacts";
-  const [contacts, setContacts] = useState(() => { return JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY)) || [] });
-  const addContactHandler = (contact) => {
+  const [contacts, setContacts] = useState([]);
 
-    setContacts([...contacts, { id: uuidv4(), ...contact }]);
+  // RetrieveContacts  
+  const retrieveContacts = async () => {
+    try {
+      const response = await api.get("/contacts")
+      return response.data;
+    } catch (error) {
+      console.log("Error fetching contacts:", error);
+    }
   };
 
-  const removeContactHandler = (id) => {
+
+
+  const addContactHandler = async (contact) => {
+    const request = {
+      id: uuidv4(),
+      ...contact
+    }
+    const response = await api.post("/contacts", request)
+    setContacts([...contacts, response.data]);
+  };
+
+  const updateContactHandler = () => {
+
+  }
+
+  const removeContactHandler = async (id) => {
+    const response = await api.delete(`/contacts/${id}`);
     const newContactList = contacts.filter((contact) => {
       return contact.id !== id;
     });
@@ -38,23 +50,35 @@ function App() {
   }
 
   useEffect(() => {
-    localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
+    const getAllContacts = async () => {
+      try {
+        const allContacts = await retrieveContacts();
+        if (allContacts) {
+          setContacts(allContacts);
+        }
+      } catch (error) {
+        console.error("Error fetching contacts:", error);
+      }
+    };
+
+    getAllContacts();
+  }, []);
+
+
+  useEffect(() => {
+    // localStorage.setItem(LOCAL_STORAGE_KEY, JSON.stringify(contacts));
   }, [contacts]);
 
   return (
     <div className="ui container">
-
-      {/* <AddContact addContactHandler={addContactHandler} /> */}
-      {/* <ContactList contacts={contacts} getContactId={removeContactHandler} /> */}
-      {/* <ContactCard /> */}
-      {/* <Route index element={<Home />} /> */}
       <BrowserRouter>
         <Header />
         <Routes>
           <Route index element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
           <Route path="/add" element={<AddContact addContactHandler={addContactHandler} />} />
-          <Route path="/*" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} />
-          <Route path="/contact/:id" element={<ContactDetail contacts={contacts}/>} />
+          <Route path="/edit" element={<EditContact updateContactHandler={updateContactHandler} />} />
+          <Route path="/contact/:id" element={<ContactDetail contacts={contacts} />} />
+          {/* <Route path="/*" element={<ContactList contacts={contacts} getContactId={removeContactHandler} />} /> */}
         </Routes>
       </BrowserRouter>
     </div>
