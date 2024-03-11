@@ -1,0 +1,118 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-3">
+        <h3><%= listing.title %></h3>
+    </div>
+    <div class="card col-6 offset-3 show-card">
+        <img
+            src="<%= listing.image %>"
+            class="card-img-top show-img"
+            alt="><%= listing._id %>"
+        />
+        <div class="card-body">
+            <p class="card-text">
+                <%= listing.description %> <br />
+                &#8377; <%= listing.price.toLocaleString("en-IN"); %> <br />
+                <%= listing.country %> <br />
+                <%= listing.location %>
+            </p>
+        </div>
+    </div>
+    <br />
+</div>
+<div class="btns">
+    <a
+        href="/listings/<%=listing._id%>/edit"
+        class="btn btn-dark col-1 offset-3 edit-btn"
+        >Edit</a
+    >
+    <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
+        <button class="btn btn-dark offset-5">Delete</button>
+    </form>
+</div>
+
+<!-- // reviews form -->
+<div class="col-6 offset-3 mt-5">
+    <h4>Leave a Review</h4>
+    <form
+        action="/listings/<%=listing._id%>/reviews"
+        method="POST"
+        novalidate
+        class="needs-validation mt-4"
+    >
+        <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea
+                class="form-control"
+                placeholder="Leave a comment here"
+                id="comment"
+                style="height: 100px"
+                name="review[comment]"
+                required
+            ></textarea>
+            <div class="valid-feedback">comment looks good!</div>
+            <div class="invalid-feedback">Please add a comment!</div>
+        </div>
+        <div class="mb-3 col-md-4">
+            <label for="rating" class="form-label">Rating</label>
+            <input
+                type="range"
+                class="form-range"
+                min="1"
+                max="5"
+                id="rating"
+                name="review[rating]"
+            />
+        </div>
+        <button class="btn btn-dark add-btn mt-3 mb-3">Add</button>
+    </form>
+</div>
+
+<!-- //reviews : -->
+<% if(listing.reviews.length>0) { %>
+<div class="row d-flex justify-content-center">
+    
+    <div class="col-md-10 col-xl-8 text-center">
+        <h3 class="mb-4">Reviews</h3>
+        <!-- <p class="mb-4 pb-2 mb-md-5 pb-md-0">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugit,
+                error amet numquam iure provident voluptate esse quasi,
+                veritatis totam voluptas nostrum quisquam eum porro a pariatur
+                veniam.
+            </p> -->
+    </div>
+</div>
+<div class="row text-center">
+    <% for(let review of listing.reviews.sort((a, b) => b.rating - a.rating)) { %>
+    <div class="col-md-4 mb-4">
+        <!--<div class="d-flex justify-content-center mb-4">
+                <img
+                    src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(9).webp"
+                    class="rounded-circle shadow-1-strong"
+                    width="150"
+                    height="150"
+                />
+            </div> -->
+        <!-- <h5 class="mb-3">John Smith</h5> -->
+        <!-- <h6 class="text-primary mb-3">Marketing Specialist</h6> -->
+        <p class="px-xl-3"><i class="fas fa-quote-left pe-2"></i><%=review.comment%></p>
+        <ul class="list-unstyled d-flex justify-content-center mb-0">
+            <% for(let star=0; star<review.rating; star++ ) { %>
+                <li>
+                    <i class="fas fa-star fa-sm our-red"></i>
+                </li>
+            <% } %>  
+
+            <% for(let star=0; star<5-review.rating; star++ ) { %>
+                <li>
+                    <i class="far fa-star fa-sm our-red"></i>
+                </li>
+            <% } %>
+        </ul>
+        <form action="/listings/<%=listing._id%>/reviews/<%=review._id%>?_method=DELETE" method="POST">
+            <button class="btn btn-dark add-btn mt-3 mb-3">Delete</button>
+        </form>
+    </div>
+<% } %>   
+</div>
+<% } %>   
