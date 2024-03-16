@@ -40,6 +40,11 @@ module.exports.renderEditForm = async (req, res) => {
         req.flash("error", "Listing you requested for does not exits!");
         res.redirect("/listings");
     }
+    let originalImageUrl = listing.image.url;
+    listing.image.url = originalImageUrl.replace(
+        "/upload",
+        "/upload/w_250"
+    );
     res.render("listings/edit.ejs", { listing });
 };
 
@@ -49,10 +54,15 @@ module.exports.updateListing = async (req, res) => {
     }
     let listing = req.body.listing;
     let { id } = req.params;
-    await Listing.findByIdAndUpdate(id, listing, {
+    let updatedListing = await Listing.findByIdAndUpdate(id, listing, {
         runValidators: true,
         new: true,
     });
+    if (typeof req.file !== "undefined") {
+        let { path: url, filename } = req.file;
+        updatedListing.image = { url, filename };
+        await updatedListing.save();
+    }
     req.flash("success", "Listing Updated!");
     res.redirect(`/listings/${id}`);
 };
